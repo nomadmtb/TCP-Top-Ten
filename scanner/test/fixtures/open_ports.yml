@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  scan_id: 
+  port: 1
+  service: MyString
+
+two:
+  scan_id: 
+  port: 1
+  service: MyString

@@ -1,0 +1,31 @@
+<h1>Listing open_ports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Scan</th>
+      <th>Port</th>
+      <th>Service</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @open_ports.each do |open_port| %>
+      <tr>
+        <td><%= open_port.scan %></td>
+        <td><%= open_port.port %></td>
+        <td><%= open_port.service %></td>
+        <td><%= link_to 'Show', open_port %></td>
+        <td><%= link_to 'Edit', edit_open_port_path(open_port) %></td>
+        <td><%= link_to 'Destroy', open_port, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Open port', new_open_port_path %>

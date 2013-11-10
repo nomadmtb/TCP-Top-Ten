@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Scan:</strong>
+  <%= @open_port.scan %>
+</p>
+
+<p>
+  <strong>Port:</strong>
+  <%= @open_port.port %>
+</p>
+
+<p>
+  <strong>Service:</strong>
+  <%= @open_port.service %>
+</p>
+
+<%= link_to 'Edit', edit_open_port_path(@open_port) %> |
+<%= link_to 'Back', open_ports_path %>

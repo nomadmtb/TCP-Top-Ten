@@ -1,4 +1,6 @@
 Scanner::Application.routes.draw do
+  resources :open_ports
+
   resources :scans
 
   get "home/index"
