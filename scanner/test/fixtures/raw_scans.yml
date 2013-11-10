@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  scan_id: 
+  raw_xml: MyText
+
+two:
+  scan_id: 
+  raw_xml: MyText
