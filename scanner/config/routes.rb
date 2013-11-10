@@ -1,4 +1,6 @@
 Scanner::Application.routes.draw do
+  resources :scans
+
   get "home/index"
   devise_for :users
 

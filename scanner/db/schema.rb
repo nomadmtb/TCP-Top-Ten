@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131110222930) do
+ActiveRecord::Schema.define(version: 20131110224858) do
+
+  create_table "scans", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "scan_date"
+    t.string   "ip_address"
+    t.string   "status"
+    t.string   "elapsed"
+    t.string   "domain_name_ptr"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "scans", ["user_id"], name: "index_scans_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -1,0 +1,41 @@
+<%= form_for(@scan) do |f| %>
+  <% if @scan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@scan.errors.count, "error") %> prohibited this scan from being saved:</h2>
+
+      <ul>
+      <% @scan.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user %><br>
+    <%= f.text_field :user %>
+  </div>
+  <div class="field">
+    <%= f.label :scan_date %><br>
+    <%= f.datetime_select :scan_date %>
+  </div>
+  <div class="field">
+    <%= f.label :ip_address %><br>
+    <%= f.text_field :ip_address %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :elapsed %><br>
+    <%= f.text_field :elapsed %>
+  </div>
+  <div class="field">
+    <%= f.label :domain_name_ptr %><br>
+    <%= f.text_field :domain_name_ptr %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

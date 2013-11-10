@@ -1,0 +1,37 @@
+<h1>Listing scans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Scan date</th>
+      <th>Ip address</th>
+      <th>Status</th>
+      <th>Elapsed</th>
+      <th>Domain name ptr</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scans.each do |scan| %>
+      <tr>
+        <td><%= scan.user %></td>
+        <td><%= scan.scan_date %></td>
+        <td><%= scan.ip_address %></td>
+        <td><%= scan.status %></td>
+        <td><%= scan.elapsed %></td>
+        <td><%= scan.domain_name_ptr %></td>
+        <td><%= link_to 'Show', scan %></td>
+        <td><%= link_to 'Edit', edit_scan_path(scan) %></td>
+        <td><%= link_to 'Destroy', scan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Scan', new_scan_path %>

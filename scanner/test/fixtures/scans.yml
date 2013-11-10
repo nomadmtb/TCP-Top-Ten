@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 
+  scan_date: 2013-11-10 14:48:58
+  ip_address: MyString
+  status: MyString
+  elapsed: MyString
+  domain_name_ptr: MyString
+
+two:
+  user_id: 
+  scan_date: 2013-11-10 14:48:58
+  ip_address: MyString
+  status: MyString
+  elapsed: MyString
+  domain_name_ptr: MyString

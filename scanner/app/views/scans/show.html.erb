@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @scan.user %>
+</p>
+
+<p>
+  <strong>Scan date:</strong>
+  <%= @scan.scan_date %>
+</p>
+
+<p>
+  <strong>Ip address:</strong>
+  <%= @scan.ip_address %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @scan.status %>
+</p>
+
+<p>
+  <strong>Elapsed:</strong>
+  <%= @scan.elapsed %>
+</p>
+
+<p>
+  <strong>Domain name ptr:</strong>
+  <%= @scan.domain_name_ptr %>
+</p>
+
+<%= link_to 'Edit', edit_scan_path(@scan) %> |
+<%= link_to 'Back', scans_path %>
