@@ -11,7 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131110224858) do
+ActiveRecord::Schema.define(version: 20131110230027) do
+
+  create_table "comments", force: true do |t|
+    t.integer  "scan_id"
+    t.integer  "user_id"
+    t.datetime "comment_date"
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["scan_id"], name: "index_comments_on_scan_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "open_ports", force: true do |t|
+    t.integer  "scan_id"
+    t.integer  "port"
+    t.string   "service"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "open_ports", ["scan_id"], name: "index_open_ports_on_scan_id"
+
+  create_table "raw_scans", force: true do |t|
+    t.integer  "scan_id"
+    t.text     "raw_xml"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "raw_scans", ["scan_id"], name: "index_raw_scans_on_scan_id"
 
   create_table "scans", force: true do |t|
     t.integer  "user_id"
