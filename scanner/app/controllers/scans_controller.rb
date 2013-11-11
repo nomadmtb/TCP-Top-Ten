@@ -1,3 +1,5 @@
+require 'NomadScanAPI'
+
 class ScansController < ApplicationController
   before_action :set_scan, only: [:show, :edit, :update, :destroy]
 
@@ -24,7 +26,11 @@ class ScansController < ApplicationController
   # POST /scans
   # POST /scans.json
   def create
+
     @scan = Scan.new(scan_params)
+    @scan.set_scan_results
+    @scan.user_id = current_user.id
+    puts current_user.id
 
     respond_to do |format|
       if @scan.save
