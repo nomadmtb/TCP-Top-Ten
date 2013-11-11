@@ -27,10 +27,11 @@ class ScansController < ApplicationController
   # POST /scans.json
   def create
 
-    @scan = Scan.new(scan_params)
-    @scan.set_scan_results
-    @scan.user_id = current_user.id
-    puts current_user.id
+    #@scan = Scan.new(scan_params)
+    #@scan.set_scan_results
+    
+    @user = current_user
+    @scan = @user.scans.create(scan_params)
 
     respond_to do |format|
       if @scan.save

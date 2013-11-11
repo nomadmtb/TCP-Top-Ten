@@ -13,6 +13,7 @@ class Scan < ActiveRecord::Base
   accepts_nested_attributes_for :open_ports, :raw_scan, :comments
 
   def set_scan_results
+
 	  api = NomadScanAPI.new
 	  results = api.scan(self.ip_address)
 
