@@ -32,6 +32,7 @@ class ScansController < ApplicationController
     
     @user = current_user
     @scan = @user.scans.create(scan_params)
+    @scan.set_scan_results
 
     respond_to do |format|
       if @scan.save
@@ -76,6 +77,6 @@ class ScansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def scan_params
-      params.require(:scan).permit(:user_id, :scan_date, :ip_address, :status, :elapsed, :domain_name_ptr)
+      params.require(:scan).permit(:ip_address)
     end
 end

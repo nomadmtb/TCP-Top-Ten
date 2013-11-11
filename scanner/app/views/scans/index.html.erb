@@ -18,7 +18,7 @@
   <tbody>
     <% @scans.each do |scan| %>
       <tr>
-        <td><%= scan.user %></td>
+        <td><%= scan.user.email %></td>
         <td><%= scan.scan_date %></td>
         <td><%= scan.ip_address %></td>
         <td><%= scan.status %></td>
