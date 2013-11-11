@@ -4,8 +4,10 @@ class Scan < ActiveRecord::Base
   #the associated data is too.
 
   belongs_to :user
+  has_one :raw_scan
   has_many :open_ports, :dependent => :destroy
   has_many :comments, :dependent => :destroy
+
   accepts_nested_attributes_for :open_ports, :raw_scan, :comments
 
 end
