@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131110230027) do
+ActiveRecord::Schema.define(version: 20131112050031) do
 
   create_table "comments", force: true do |t|
     t.integer  "scan_id"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20131110230027) do
     t.string   "domain_name_ptr"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "xml"
   end
 
   add_index "scans", ["user_id"], name: "index_scans_on_user_id"
