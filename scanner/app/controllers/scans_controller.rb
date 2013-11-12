@@ -26,16 +26,19 @@ class ScansController < ApplicationController
   # POST /scans
   # POST /scans.json
   def create
-
-    #@scan = Scan.new(scan_params)
-    #@scan.set_scan_results
-    
+ 
+    # Getting current user object	  
     @user = current_user
+    # Creating an empty scan object
     @scan = @user.scans.create(scan_params)
+    # Requesting API and setting data
     @scan.set_scan_results
+    # Getting non-persistent open ports.
     ports = @scan.get_ports
-    puts ports
 
+    # Looping through hash of open ports, and
+    # creating an open_port object that belongs
+    # to the scan object.
     ports.each do |key, value|
 	    port = key
 	    service = value
