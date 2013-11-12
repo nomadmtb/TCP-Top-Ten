@@ -6,7 +6,6 @@ class Scan < ActiveRecord::Base
   #the associated data is too.
 
   belongs_to :user
-  has_one :raw_scan
   has_many :open_ports, :dependent => :destroy
   has_many :comments, :dependent => :destroy
 

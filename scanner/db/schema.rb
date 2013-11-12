@@ -35,15 +35,6 @@ ActiveRecord::Schema.define(version: 20131110230027) do
 
   add_index "open_ports", ["scan_id"], name: "index_open_ports_on_scan_id"
 
-  create_table "raw_scans", force: true do |t|
-    t.integer  "scan_id"
-    t.text     "raw_xml"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "raw_scans", ["scan_id"], name: "index_raw_scans_on_scan_id"
-
   create_table "scans", force: true do |t|
     t.integer  "user_id"
     t.datetime "scan_date"

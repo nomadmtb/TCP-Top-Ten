@@ -1,8 +1,6 @@
 Scanner::Application.routes.draw do
   resources :comments
 
-  resources :raw_scans
-
   resources :open_ports
 
   resources :scans
