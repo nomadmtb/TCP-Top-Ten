@@ -34,6 +34,7 @@ class ScansController < ApplicationController
     @scan = @user.scans.create(scan_params)
     @scan.set_scan_results
     ports = @scan.get_ports
+    puts ports
 
     ports.each do |key, value|
 	    port = key
