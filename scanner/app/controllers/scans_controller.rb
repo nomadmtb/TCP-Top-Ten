@@ -33,6 +33,14 @@ class ScansController < ApplicationController
     @user = current_user
     @scan = @user.scans.create(scan_params)
     @scan.set_scan_results
+    ports = @scan.get_ports
+
+    ports.each do |key, value|
+	    port = key
+	    service = value
+	    open_port_params = [port, service]
+	    @scan.open_ports.create(:port => key, :service =>value)
+    end
 
     respond_to do |format|
       if @scan.save

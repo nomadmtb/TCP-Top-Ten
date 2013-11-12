@@ -15,7 +15,7 @@
   <tbody>
     <% @open_ports.each do |open_port| %>
       <tr>
-        <td><%= open_port.scan %></td>
+        <td><%= open_port.scan.id %></td>
         <td><%= open_port.port %></td>
         <td><%= open_port.service %></td>
         <td><%= link_to 'Show', open_port %></td>
