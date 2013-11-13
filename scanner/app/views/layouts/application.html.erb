@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Scanner</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	<%= render 'shared/nav' %>
-	<div class="container">
-		<p class="notice"><%= notice %></p>
-		<p class="alert"><%= alert %></p>
-
-		<%= yield %>
-
-	</div>
-
-</body>
+	<head>
+		<title>TCP Top Ten</title>
+		<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+		<%= csrf_meta_tags %>
+		<link href='http://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div id="header">
+				<%= image_tag("crosshair.png") %>
+				<h1>TCP Top Ten</h1>
+			</div>
+			<div class="sidebar">
+				<h2>Main Menu</h2>
+				<a class="sidebar_link" href="/">Home</a>
+				<a class="sidebar_link" href="/">Stats</a>
+				<a class="sidebar_link" href="/">My Scans</a>
+				<a class="sidebar_link" href="/">Signout</a>
+				<a class="sidebar_link" href="/">Search</a>
+			</div>
+			<div class="content">
+				<%= yield %>
+			</div>
+		</div>
+	</body>
 </html>
