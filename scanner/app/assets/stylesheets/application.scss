@@ -60,7 +60,26 @@ body
 	margin-top: 20px;
 	padding-left: 10px;
 	float: right;
-	border-left: 5px solid black;
+	border-left: 5px dashed black;
+	font-family:  sans-serif;
+}
+
+#footer
+{
+	border-top: 5px solid black;
+	margin-top: 15px;
+	width: 100%;
+}
+
+#footer a
+{
+	display: block;
+	width: 300px;
+	margin: 0 auto;
+	margin-top: 20px;
+	font-family:  sans-serif;
+	text-decoration: none;
+	color: black;
 }
 
 #header
@@ -106,8 +125,9 @@ body
 
 .sidebar_link:hover
 {
-	border: 1px solid red;
+	border: 1px solid orange;
 	color: white;
 	background-color: #323232;
-	width: 70%
+	width: 70%;
+	-webkit-transition: all 0.3s ease-out;
 }
