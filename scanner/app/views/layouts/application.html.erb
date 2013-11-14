@@ -15,11 +15,16 @@
 			</div>
 			<div class="sidebar">
 				<h2>Main Menu</h2>
-				<a class="sidebar_link" href="/">Home</a>
+				<a class="sidebar_link" href="/">About</a>
 				<a class="sidebar_link" href="/">Stats</a>
-				<a class="sidebar_link" href="/">My Scans</a>
-				<a class="sidebar_link" href="/">Signout</a>
-				<a class="sidebar_link" href="/">Search</a>
+				<% if user_signed_in? %>
+					<a class="sidebar_link" href="/">My Scans</a>
+					<%=link_to "Sign Out", destroy_user_session_path, :class => 'sidebar_link', :method => 'delete'%>
+					<a class="sidebar_link" href="/">Search</a>
+				<% else %>
+					<%=link_to "Sign In", new_user_session_path, :class => 'sidebar_link'%>
+					<%=link_to "Sign Up", new_user_registration_path, :class => 'sidebar_link'%>
+				<% end %>
 			</div>
 			<div class="content">
 				<%= yield %>
