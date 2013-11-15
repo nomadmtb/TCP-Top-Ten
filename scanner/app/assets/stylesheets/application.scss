@@ -27,6 +27,28 @@ html
 	clear: both;
 }
 
+#scan_counter
+{
+	position: relative;
+	width: 200px;
+	float: right;
+	box-shadow: 10px 10px 10px #888888;
+	border-radius: 5px;
+	border: 1px solid #323232;
+}
+
+#scan_counter a
+{
+	font-family: sans-serif;
+	display: block;
+	background-color: red;
+	border-radius: 5px;
+	text-decoration: none;
+	text-align: center;
+	color: black;
+	padding: 5px;
+}
+
 body
 {
 	width: 980px;

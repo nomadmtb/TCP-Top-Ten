@@ -14,6 +14,11 @@ class ScansController < ApplicationController
   def show
   end
 
+  # GET /scans/stats
+  def stats
+	  @stats = Hash.new
+  end
+
   # GET /scans/new
   def new
     @scan = Scan.new
