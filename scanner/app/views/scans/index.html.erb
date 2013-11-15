@@ -1,37 +1,52 @@
-<h1>Listing scans</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Scan date</th>
-      <th>Ip address</th>
-      <th>Status</th>
-      <th>Elapsed</th>
-      <th>Domain name ptr</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @scans.each do |scan| %>
-      <tr>
-        <td><%= scan.user.email %></td>
-        <td><%= scan.scan_date %></td>
-        <td><%= scan.ip_address %></td>
-        <td><%= scan.status %></td>
-        <td><%= scan.elapsed %></td>
-        <td><%= scan.domain_name_ptr %></td>
-        <td><%= link_to 'Show', scan %></td>
-        <td><%= link_to 'Edit', edit_scan_path(scan) %></td>
-        <td><%= link_to 'Destroy', scan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Scan', new_scan_path %>
+<div class="page_wrap">
+	<h1 class="about_title">All Scans <span class="subtitle">Viewing All Scan Data</span></h1>
+	<div class="push_right">
+		<p>You are now viewing all of the scan records. To view a record in more detail, click the area
+		around a scan record to expand the view</p>
+		<% @scans.each do |scan| %>
+			<div class="accordion">
+				<h3><%=scan.ip_address%></h3>
+				<table class="scan_results">
+					<tr>
+						<th>Host</th>
+						<td><%= scan.ip_address %></td>
+					</tr>
+					<tr>
+						<th>Domain Name PTR</th>
+						<td><%= scan.domain_name_ptr %></td>
+					</tr>
+					<tr>
+						<th>Host Status</th>
+						<td><%= scan.status %></td>
+					</tr>
+					<tr>
+						<th>Scan Duration</th>
+						<td><%= scan.elapsed %></td>
+					</tr>
+					<tr>
+						<th>Scan Date</th>
+						<td><%= scan.scan_date.month.to_s + '-' + scan.scan_date.day.to_s + '-' + scan.scan_date.year.to_s %></td>
+					</tr>
+					<tr>
+						<th>Scan Time</th>
+						<td><%= scan.scan_date.strftime("%r") %></td>
+					</tr>
+				</table>
+				<h3>Open TCP Ports</h3>
+				<table class="scan_results">
+					<tr>
+						<th>Port</th>
+						<th>Service</th>
+					</tr>
+					<% scan.open_ports.each do |open_port| %>
+						<tr>
+							<td><%= open_port.port %></td>
+							<td><%= open_port.service %></td>
+						</tr>
+					<% end %>
+				</table>
+				<%=link_to 'View', scan %>
+			</div>
+		<% end %>
+	</div>
+</div>

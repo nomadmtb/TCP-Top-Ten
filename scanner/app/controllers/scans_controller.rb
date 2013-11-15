@@ -9,6 +9,14 @@ class ScansController < ApplicationController
     @scans = Scan.all
   end
 
+  def myscans
+	  @scans = Scan.find(:all, :conditions => ["user_id = ?", current_user.id])
+  end
+
+  def stats
+	  @scans = Scan.all
+  end
+
   # GET /scans/1
   # GET /scans/1.json
   def show

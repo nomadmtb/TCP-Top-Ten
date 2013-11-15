@@ -5,7 +5,9 @@ Scanner::Application.routes.draw do
 
   resources :scans
 
+  # Custom
   get "home/index"
+  get "myscans" => 'scans#myscans'
   devise_for :users
 
   root :to => "home#index"
