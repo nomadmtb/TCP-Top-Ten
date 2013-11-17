@@ -26,6 +26,10 @@ class Scan < ActiveRecord::Base
 		  self.status = results['status']
 		  self.elapsed = results['elapsed']
 		  self.domain_name_ptr = results['hostnames'].first
+
+		  if self.domain_name_ptr.empty?
+			  self.domain_name_ptr == 'None'
+		  end
 	  end
   end
 

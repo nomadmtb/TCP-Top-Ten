@@ -3,16 +3,17 @@
 	<div class="push_right">
 		<p>You are now viewing all of the scan records. To view a record in more detail, click the area
 		around a scan record to expand the view</p>
-		<% @scans.each do |scan| %>
 			<div class="accordion">
-				<h3><%=scan.ip_address%></h3>
+		<% @scans.reverse!.each do |scan| %>
+			<h3><%=scan.ip_address%><span class="subtitle"><%=' ' + scan.domain_name_ptr %></span></h3>
+				<div>
 				<table class="scan_results">
 					<tr>
 						<th>Host</th>
 						<td><%= scan.ip_address %></td>
 					</tr>
 					<tr>
-						<th>Domain Name PTR</th>
+						<th>Domain PTR</th>
 						<td><%= scan.domain_name_ptr %></td>
 					</tr>
 					<tr>
@@ -32,7 +33,9 @@
 						<td><%= scan.scan_date.strftime("%r") %></td>
 					</tr>
 				</table>
+
 				<h3>Open TCP Ports</h3>
+				<% if scan.open_ports.empty? == false %>
 				<table class="scan_results">
 					<tr>
 						<th>Port</th>
@@ -45,8 +48,12 @@
 						</tr>
 					<% end %>
 				</table>
+			<% else %>
+				<h4>*No open ports were detected*</h4>
+			<% end %>
 				<%=link_to 'View', scan %>
 			</div>
 		<% end %>
+			</div>
 	</div>
 </div>
