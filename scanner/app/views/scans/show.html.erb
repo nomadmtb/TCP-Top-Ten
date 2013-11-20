@@ -30,5 +30,10 @@
   <%= @scan.domain_name_ptr %>
 </p>
 
+<p>
+  <strong>User:</strong>
+  <%= @scan.raw_xml %>
+</p>
+
 <%= link_to 'Edit', edit_scan_path(@scan) %> |
 <%= link_to 'Back', scans_path %>

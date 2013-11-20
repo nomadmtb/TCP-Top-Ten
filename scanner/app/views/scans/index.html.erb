@@ -6,7 +6,7 @@
 			<div class="accordion">
 		<% @scans.reverse!.each do |scan| %>
 			<h3><%=scan.ip_address%><span class="subtitle"><%=' ' + scan.domain_name_ptr %></span></h3>
-				<div>
+			<div class="results_container">
 				<table class="scan_results">
 					<tr>
 						<th>Host</th>
