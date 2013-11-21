@@ -1,5 +1,5 @@
 require 'NomadScanAPI'
-require 'open-uri'
+require 'GeoLocationAPI'
 
 class Scan < ActiveRecord::Base
 
@@ -22,7 +22,7 @@ class Scan < ActiveRecord::Base
 	  if results != false
 		  self.get_ports = results['open_ports']
 		  self.scan_date = DateTime.now
-		  self.xml = URI.unescape(results['raw'])
+		  self.xml = results['raw']
 		  self.status = results['status']
 		  self.elapsed = results['elapsed']
 		  self.domain_name_ptr = results['hostnames'].first
@@ -30,7 +30,18 @@ class Scan < ActiveRecord::Base
 		  if self.domain_name_ptr.empty?
 			  self.domain_name_ptr == 'None'
 		  end
+
+		  set_geolocation
 	  end
+  end
+
+  def set_geolocation
+
+	  api = GeoLocationAPI.new
+	  results = api.lookup(self.ip_address)
+	  self.latitude = results['latitude']
+	  self.longitude = results['longitude']
+
   end
 
 end

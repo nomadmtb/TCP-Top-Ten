@@ -29,10 +29,20 @@
   <strong>Domain name ptr:</strong>
   <%= @scan.domain_name_ptr %>
 </p>
+  
+<p>
+  <strong>Latitude:</strong>
+  <%= @scan.latitude %>
+</p>
 
 <p>
-  <strong>User:</strong>
-  <%= @scan.raw_xml %>
+  <strong>Longitude:</strong>
+  <%= @scan.longitude %>
+</p>
+
+<p>
+  <strong>XML:</strong>
+  <%= @scan.xml %>
 </p>
 
 <%= link_to 'Edit', edit_scan_path(@scan) %> |
