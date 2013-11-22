@@ -4,6 +4,9 @@
 
 $ ->
 	request_count()
+	setInterval (->
+		request_count()
+	), 15000
 
 request_count = ->
 	$.ajax
