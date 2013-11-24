@@ -3,7 +3,6 @@ $ ->
 
 initialize_map = ->
 	if $("#map-canvas").length
-		alert 'Map Exists'
 		map_div = $("#map-canvas")
 		lat = map_div.attr("lat")
 		long = map_div.attr("long")
@@ -22,4 +21,4 @@ initialize_map = ->
 			title: "#{lat_long}"
 			optimized: false
 	else
-		alert 'Map MISSING'
+		return

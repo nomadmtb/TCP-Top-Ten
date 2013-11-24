@@ -54,8 +54,10 @@ body
 {
 	width: 980px;
 	margin: 0 auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
 	padding: 10px;
-	border: 2px solid black;
+	border: 1px solid #323232;
 	background-color: white;
 	box-shadow: 10px 10px 10px #888888;
 }
@@ -83,7 +85,7 @@ body
 	margin-top: 20px;
 	padding-left: 10px;
 	float: right;
-	border-left: 5px dashed black;
+	#border-left: 5px dashed black;
 	font-family:  sans-serif;
 }
 
@@ -91,13 +93,14 @@ body
 {
 	border-top: 5px solid black;
 	margin-top: 15px;
+	margin-bottom: 10px;
 	width: 100%;
 }
 
 #footer a
 {
 	display: block;
-	width: 300px;
+	width: 253px;
 	margin: 0 auto;
 	margin-top: 20px;
 	font-family:  sans-serif;
