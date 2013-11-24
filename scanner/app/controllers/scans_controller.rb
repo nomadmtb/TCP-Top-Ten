@@ -48,20 +48,24 @@ class ScansController < ApplicationController
     # Getting current user object	  
     @user = current_user
     # Creating an empty scan object
-    @scan = @user.scans.create!(scan_params)
-    # Requesting API and setting data
-    @scan.set_scan_results
-    # Getting non-persistent open ports.
-    ports = @scan.get_ports
+    @scan = @user.scans.create(scan_params)
 
-    # Looping through hash of open ports, and
-    # creating an open_port object that belongs
-    # to the scan object.
-    ports.each do |key, value|
-	    port = key
-	    service = value
-	    open_port_params = [port, service]
-	    @scan.open_ports.create(:port => key, :service => value)
+    # Only do API stuff if create didn't add any errors to @scan
+    if !@scan.errors.any?
+    	# Requesting API and setting data
+    	@scan.set_scan_results
+    	# Getting non-persistent open ports.
+    	ports = @scan.get_ports
+
+    	# Looping through hash of open ports, and
+    	# creating an open_port object that belongs
+    	# to the scan object.
+    	ports.each do |key, value|
+	    	port = key
+	    	service = value
+	    	open_port_params = [port, service]
+	    	@scan.open_ports.create(:port => key, :service => value)
+    	end
     end
 
     respond_to do |format|

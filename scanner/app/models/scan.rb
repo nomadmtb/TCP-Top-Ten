@@ -12,7 +12,6 @@ class Scan < ActiveRecord::Base
   validate :validate_ip
 
   def validate_ip
-	  puts "VALIDATIONS"
 	  if !IpValidate.valid_ip? self.ip_address
 		  errors.add :ip_address, "Not A Valid IP Address"
 	  end
