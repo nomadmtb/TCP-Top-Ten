@@ -53,6 +53,7 @@ class ScansController < ApplicationController
     @scan.set_scan_results
     # Getting non-persistent open ports.
     ports = @scan.get_ports
+    puts ports.inspect + " *********"
 
     # Looping through hash of open ports, and
     # creating an open_port object that belongs

@@ -25,11 +25,7 @@ class Scan < ActiveRecord::Base
 		  self.xml = results['raw']
 		  self.status = results['status']
 		  self.elapsed = results['elapsed']
-		  self.domain_name_ptr = results['hostnames'].first
-
-		  if self.domain_name_ptr.empty?
-			  self.domain_name_ptr == 'None'
-		  end
+		  self.domain_name_ptr = results['hostname']
 
 		  set_geolocation
 	  end
