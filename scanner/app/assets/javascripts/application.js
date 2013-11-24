@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery.ui.accordion
+//= require jquery.ui.effect
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .

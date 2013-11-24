@@ -9,6 +9,7 @@ Scanner::Application.routes.draw do
   get "home/index"
   get "myscans" => 'scans#myscans'
   get "scan_count" => 'application#host_count'
+  get "/scans/:id/download" => 'scans#download'
   devise_for :users
 
   root :to => "home#index"

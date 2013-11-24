@@ -17,6 +17,11 @@ class ScansController < ApplicationController
 	  @scans = Scan.all
   end
 
+  def download
+	  @scan = Scan.find(params[:id])
+	  send_data(@scan.xml, :filename => "scan_data.xml")
+  end
+
   # GET /scans/1
   # GET /scans/1.json
   def show
