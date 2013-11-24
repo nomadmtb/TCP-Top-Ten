@@ -61,7 +61,7 @@ class ScansController < ApplicationController
 	    port = key
 	    service = value
 	    open_port_params = [port, service]
-	    @scan.open_ports.create(:port => key, :service =>value)
+	    @scan.open_ports.create(:port => key, :service => value)
     end
 
     respond_to do |format|

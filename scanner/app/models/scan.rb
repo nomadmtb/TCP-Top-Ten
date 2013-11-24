@@ -1,20 +1,24 @@
 require 'NomadScanAPI'
 require 'GeoLocationAPI'
+require 'ip_validate'
 
 class Scan < ActiveRecord::Base
-
-  #Scans belong to a user. If a scan is deleted, then all
-  #the associated data is too.
 
   belongs_to :user
   has_many :open_ports, :dependent => :destroy
   has_many :comments, :dependent => :destroy
-
   attr_accessor :get_ports
-
   accepts_nested_attributes_for :open_ports, :comments
 
+  def validate_ip
+
+	  if !IpValidate.valid_ip? self.ip_address
+		  errors.add :ip_address, "Not A Valid IP Address"
+	  end
+  end
+
   def set_scan_results
+	  validate_ip
 
 	  api = NomadScanAPI.new
 	  results = api.scan(self.ip_address)
