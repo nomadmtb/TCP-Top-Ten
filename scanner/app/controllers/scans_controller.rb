@@ -48,7 +48,7 @@ class ScansController < ApplicationController
     # Getting current user object	  
     @user = current_user
     # Creating an empty scan object
-    @scan = @user.scans.create(scan_params)
+    @scan = @user.scans.create!(scan_params)
     # Requesting API and setting data
     @scan.set_scan_results
     # Getting non-persistent open ports.

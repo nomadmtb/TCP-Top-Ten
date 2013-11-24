@@ -9,9 +9,10 @@ class Scan < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   attr_accessor :get_ports
   accepts_nested_attributes_for :open_ports, :comments
+  validate :validate_ip
 
   def validate_ip
-
+	  puts "VALIDATIONS"
 	  if !IpValidate.valid_ip? self.ip_address
 		  errors.add :ip_address, "Not A Valid IP Address"
 	  end
