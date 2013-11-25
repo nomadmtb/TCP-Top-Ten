@@ -8,5 +8,14 @@ initialize_summary_map = ->
 		#Create Map opject
 		#Iterate through locations
 		#Create Markers
+		location = new google.maps.LatLng(29.228890, 11.898193)
+
+		mapOptions = 
+			zoom: 1
+			center: location
+
+		map = new google.maps.Map(document.getElementById("summary_canvas"), mapOptions)
+
+		# AJAX, create markers.
 	else
 		return

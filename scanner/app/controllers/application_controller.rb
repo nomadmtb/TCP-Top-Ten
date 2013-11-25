@@ -11,4 +11,20 @@ class ApplicationController < ActionController::Base
 	  end
   end
 
+  def recent_locations
+	  locations = Array.new
+
+	  scans = Scan.limit(100)
+
+	  scans.each do |scan|
+		  coords = Hash.new
+		  coords = {:latitude => scan.latitude, :longitude => scan.longitude}
+		  locations.push(coords)
+	  end
+
+	  respond_to do |format|
+		  format.json { render :json => locations }
+	  end
+  end
+
 end
