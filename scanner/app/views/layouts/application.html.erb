@@ -19,15 +19,18 @@
 			<div class="sidebar">
 				<h2>Main Menu</h2>
 				<%=link_to "About TCPTT", root_path, :class => 'sidebar_link' %>
+				<div class="line_seperator"></div>
 				<a class="sidebar_link" href="/">Stats</a>
 				<%=link_to "All Scans", scans_path, :class => 'sidebar_link' %>
 				<a class="sidebar_link" href="/">Search</a>
+				<div class="line_seperator"></div>
 				<% if user_signed_in? %>
-					<%=link_to "My Scans", myscans_path, :class => 'sidebar_link' %>
-					<%=link_to "Sign Out", destroy_user_session_path, :class => 'sidebar_link', :method => 'delete'%>
+					<%=link_to "New Scan", new_scan_path, :class => 'sidebar_link_green' %>
+					<%=link_to "My Scans", myscans_path, :class => 'sidebar_link_blue' %>
+					<%=link_to "Sign Out", destroy_user_session_path, :class => 'sidebar_link_red', :method => 'delete'%>
 				<% else %>
-					<%=link_to "Sign In", new_user_session_path, :class => 'sidebar_link'%>
-					<%=link_to "Sign Up", new_user_registration_path, :class => 'sidebar_link'%>
+					<%=link_to "Sign In", new_user_session_path, :class => 'sidebar_link_green'%>
+					<%=link_to "Sign Up", new_user_registration_path, :class => 'sidebar_link_blue'%>
 				<% end %>
 			</div>
 			<div class="content">

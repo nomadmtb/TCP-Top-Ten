@@ -19,7 +19,8 @@
 
 html
 {
-	background-color: darkgray;
+	background: asset-data-url("mochaGrunge.png");
+	background-repeat: repeat;
 	font-family: 'Oswald', sans-serif;
 }
 
@@ -59,7 +60,7 @@ body
 	padding: 10px;
 	border: 1px solid #323232;
 	background-color: white;
-	box-shadow: 10px 10px 10px #888888;
+	box-shadow: 10px 10px 10px #3a3a3a;
 }
 
 .wrapper
@@ -122,6 +123,15 @@ body
 	-webkit-animation: spin 30s linear infinite;
 }
 
+.line_seperator
+{
+	height: 1px;
+	background: #717171;
+	border-bottom: 1px solid #313030;
+	margin-top: 12px;
+	width: 80%;
+}
+
 #header h1
 {
 	font-size: 61px;
@@ -147,6 +157,81 @@ body
 	font-family:  sans-serif;
 	padding: 5px;
 	box-shadow: 5px 5px 5px #888888;
+}
+
+.sidebar_link_blue
+{
+	display: block;
+	background-color: lightskyblue;
+	border: 1px solid black;
+	border-radius: 5px;
+	margin-top: 10px;
+	width: 65%;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	font-family:  sans-serif;
+	padding: 5px;
+	box-shadow: 5px 5px 5px #888888;
+}
+
+.sidebar_link_blue:hover
+{
+	border: 1px solid orange;
+	color: white;
+	background-color: #323232;
+	width: 80%;
+	-webkit-transition: all 0.3s ease-out;
+}
+
+.sidebar_link_red
+{
+	display: block;
+	background-color: orangered;
+	border: 1px solid black;
+	border-radius: 5px;
+	margin-top: 10px;
+	width: 65%;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	font-family:  sans-serif;
+	padding: 5px;
+	box-shadow: 5px 5px 5px #888888;
+}
+
+.sidebar_link_red:hover
+{
+	border: 1px solid orange;
+	color: white;
+	background-color: #323232;
+	width: 80%;
+	-webkit-transition: all 0.3s ease-out;
+}
+
+.sidebar_link_green
+{
+	display: block;
+	background-color: mediumspringgreen;
+	border: 1px solid black;
+	border-radius: 5px;
+	margin-top: 10px;
+	width: 65%;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	font-family:  sans-serif;
+	padding: 5px;
+	box-shadow: 5px 5px 5px #888888;
+}
+
+.sidebar_link_green:hover
+{
+	border: 1px solid orange;
+	color: white;
+	background-color: #323232;
+	width: 80%;
+	-webkit-transition: all 0.3s ease-out;
 }
 
 .sidebar_link:hover
