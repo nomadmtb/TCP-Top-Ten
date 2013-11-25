@@ -22,6 +22,8 @@ class ApplicationController < ActionController::Base
 		  locations.push(coords)
 	  end
 
+	  locations.uniq!
+
 	  respond_to do |format|
 		  format.json { render :json => locations }
 	  end
