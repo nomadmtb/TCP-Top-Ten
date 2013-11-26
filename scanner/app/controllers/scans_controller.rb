@@ -13,6 +13,9 @@ class ScansController < ApplicationController
 	  @scans = Scan.find(:all, :conditions => ["user_id = ?", current_user.id])
   end
 
+  def search
+  end
+
   def download
 	  @scan = Scan.find(params[:id])
 	  send_data(@scan.xml, :filename => "scan_data.xml")

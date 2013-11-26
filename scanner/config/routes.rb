@@ -11,6 +11,7 @@ Scanner::Application.routes.draw do
   get "scan_count" => 'application#host_count'
   get "/scans/:id/download" => 'scans#download'
   get "/recent_locations" => 'application#recent_locations'
+  get "search" => 'scans#search'
   devise_for :users
 
   root :to => "home#index"

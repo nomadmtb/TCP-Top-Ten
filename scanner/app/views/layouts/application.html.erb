@@ -18,11 +18,16 @@
 			</div>
 			<div class="sidebar">
 				<h2>Main Menu</h2>
+				<div id="search_container">
+				<%= form_tag(search_path, :method => "get", :id => 'search_form', :role => 'form') do %>
+					<%= text_field :query, params[:query], :class => 'form-control', :placeholder => 'Search' %>
+					<button class="search_button" type="submit">Search</button>
+				<% end %>
+				</div>
 				<%=link_to "About TCPTT", root_path, :class => 'sidebar_link' %>
 				<div class="line_seperator"></div>
 				<a class="sidebar_link" href="/">Stats</a>
 				<%=link_to "All Scans", scans_path, :class => 'sidebar_link' %>
-				<a class="sidebar_link" href="/">Search</a>
 				<div class="line_seperator"></div>
 				<% if user_signed_in? %>
 					<%=link_to "New Scan", new_scan_path, :class => 'sidebar_link_green' %>

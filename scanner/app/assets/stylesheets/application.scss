@@ -24,6 +24,17 @@ html
 	font-family: 'Oswald', sans-serif;
 }
 
+#search_container
+{
+	background-color: lightgray;
+	border: 1px solid black;
+	padding-top: 0px;
+	padding-bottom: 3px;
+	padding-left: 1px;
+	border-radius: 3px;
+	box-shadow: 5px 5px 5px #888888;
+}
+
 #clear
 {
 	clear: both;
@@ -120,7 +131,7 @@ body
 #header img
 {
 	float: left;
-	-webkit-animation: spin 30s linear infinite;
+	-webkit-animation: spin 60s linear infinite;
 }
 
 .line_seperator
