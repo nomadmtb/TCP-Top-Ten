@@ -9,3 +9,8 @@
 <% @scans_dns.each do |scan| %>
 	<%= scan.domain_name_ptr %>
 <% end %>
+
+<h2>User Scans</h2>
+<% @scans_user.each do |scan| %>
+	<%= scan.user.email %>
+<% end %>

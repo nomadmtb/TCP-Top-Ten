@@ -15,11 +15,16 @@ def IpValidate.valid_ip? address
 	rescue
 		return false
 	else
+		# Reserved IP ranges
 		net1 = IPAddr.new("10.0.0.0/8")
 		net2 = IPAddr.new("172.16.0.0/12")
 		net3 = IPAddr.new("192.168.0.0/16")
 		net4 = IPAddr.new("127.0.0.1")
 
+		# Checking for broadcast address
+		if address.include? '255'
+			return false
+		end
 		if net1.include? addr
 			return false
 		end

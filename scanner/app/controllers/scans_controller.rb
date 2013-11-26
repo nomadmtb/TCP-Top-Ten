@@ -18,6 +18,7 @@ class ScansController < ApplicationController
 	  scans = Scan.all
 	  @scans_ip = scans.map { |x| x if x.ip_address =~ /#{Regexp.quote(params[:query])}/ }.compact
 	  @scans_dns = scans.map { |x| x if x.domain_name_ptr =~ /#{Regexp.quote(params[:query])}/i }.compact
+	  @scans_user = scans.map { |x| x if x.user.email =~ /#{Regexp.quote(params[:query])}/i }.compact
   end
 
   def download
