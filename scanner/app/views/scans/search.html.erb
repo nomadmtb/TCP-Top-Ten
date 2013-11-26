@@ -1,0 +1,11 @@
+<h1>Search Results</h1>
+
+<h2>Ip Results</h2>
+<% @scans_ip.each do |scan| %>
+	<%= scan.ip_address %>
+<% end %>
+
+<h2>DNS Pointer</h2>
+<% @scans_dns.each do |scan| %>
+	<%= scan.domain_name_ptr %>
+<% end %>
