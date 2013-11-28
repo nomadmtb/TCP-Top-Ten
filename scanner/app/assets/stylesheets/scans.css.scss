@@ -5,12 +5,24 @@
 .scan_results
 {
 	text-align: left;
+}
+
+.scan_results_show
+{
+	text-align: left;
 	float: left;
+	width: 535px;
 }
 
 #result_wrapper
 {
-	display: block;
+	width: 100%;
+	background-color: green;
+}
+
+#result_wrapper img
+{
+	float: right;
 }
 
 .view_details_link

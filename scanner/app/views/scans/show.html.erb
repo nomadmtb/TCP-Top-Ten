@@ -2,7 +2,7 @@
 <h1><%= @scan.ip_address %><span class="subtitle"> <%= @scan.scan_date.month.to_s + '-' + @scan.scan_date.day.to_s + '-' + @scan.scan_date.year.to_s %></span></h1>
 <div class="push_right">
 	<div id="result_wrapper">
-	<table class="scan_results">
+	<table class="scan_results_show">
 		<tr><th>Date</th>
 			<td><%= @scan.scan_date.month.to_s + '-' + @scan.scan_date.day.to_s + '-' + @scan.scan_date.year.to_s + ' : ' + @scan.scan_date.strftime("%r") %></td>
 		</tr>
