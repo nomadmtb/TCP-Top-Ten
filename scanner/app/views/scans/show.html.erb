@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @scan.ip_address %><span class="subtitle"> <%= @scan.scan_date.month.to_s + '-' + @scan.scan_date.day.to_s + '-' + @scan.scan_date.year.to_s %></span></h1>
 <div class="push_right">
+	<div id="result_wrapper">
 	<table class="scan_results">
 		<tr><th>Date</th>
 			<td><%= @scan.scan_date.month.to_s + '-' + @scan.scan_date.day.to_s + '-' + @scan.scan_date.year.to_s + ' : ' + @scan.scan_date.strftime("%r") %></td>
@@ -24,6 +25,8 @@
 			<td><%= @scan.user.email %></td>
 		</tr>
 	</table>
+	<%= image_tag("host.png") %>
+	</div>
   </div> <!-- End of push-right -->
 
 <div id="map-canvas" lat="<%= @scan.latitude %>" long="<%= @scan.longitude %>"></div>
