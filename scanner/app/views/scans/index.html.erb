@@ -24,6 +24,14 @@
 						<th>User</th>
 						<td><%= scan.user.email %></td>
 					</tr>
+					<tr>
+						<th>Response</th>
+						<% if scan.comments.length != 0 %>
+							<td><%= 'There are ' + scan.comments.length.to_s + ' comment(s)' %></td>
+						<% else %>
+							<td>No Comments</td>
+						<% end %>
+					</tr>
 				</table>
 
 				<h3>Open TCP Ports</h3>
