@@ -7,6 +7,27 @@
 	text-align: left;
 }
 
+.view_details_link
+{
+	display: block;
+	text-decoration: none;
+	width: 50%;
+	margin: 0 auto;
+	text-align: center;
+	padding: 5px;
+	border-radius: 5px;
+	border: 1px solid black;
+}
+
+.view_details_link:hover
+{
+	width: 70%;
+	border: 1px solid black;
+	-webkit-transition: all 0.3s ease-out;
+	background-color: #323232;
+	color: lightgray;
+}
+
 #map-canvas
 {
 	margin-top: 5px;
