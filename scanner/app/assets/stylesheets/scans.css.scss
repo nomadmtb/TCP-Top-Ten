@@ -14,15 +14,42 @@
 	width: 535px;
 }
 
-#result_wrapper
+.result_wrapper
 {
 	width: 100%;
-	background-color: green;
 }
 
-#result_wrapper img
+.result_wrapper img
 {
 	float: right;
+}
+
+.open_ports_wrapper
+{
+	margin: 0 auto;
+	background-color: lightgray;
+	margin-top: 20px;
+	margin-bottom: 15px;
+	width: 260px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+	padding-top: 10px;
+	border-radius: 5px;
+	border: 1px solid black;
+	box-shadow: 5px 5px 5px #888888;
+}
+
+.open_ports_wrapper h3
+{
+	text-align: center;
+	text-decoration: underline;
+}
+
+.open_ports_wrapper table
+{
+	text-align: left;
+	margin: 0 auto;
 }
 
 .view_details_link

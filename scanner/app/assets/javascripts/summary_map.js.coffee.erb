@@ -18,8 +18,9 @@ add_markers = (results) ->
 		center: location
 
 	map = new google.maps.Map(document.getElementById("summary_canvas"), mapOptions)
+	infowindow = new google.maps.InfoWindow(content: "")
 
-	for result in results
+	for result, index in results
 		lat = result.latitude
 		long = result.longitude
 		location = new google.maps.LatLng(lat, long)
@@ -28,3 +29,9 @@ add_markers = (results) ->
 			map: map
 			optimized: false
 			icon: "<%= asset_path('marker.png') %>"
+		create_tooltip marker, map, infowindow, result.ip_address, result.location
+
+create_tooltip = (marker, map, infowindow, ip_address, link) ->
+	google.maps.event.addListener marker, "click", ->
+		infowindow.setContent "<a href=#{link}>#{ip_address}</a>"
+		infowindow.open map, marker

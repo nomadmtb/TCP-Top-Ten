@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
 
 	  scans.each do |scan|
 		  coords = Hash.new
-		  coords = {:latitude => scan.latitude, :longitude => scan.longitude}
+		  coords = {:latitude => scan.latitude, :longitude => scan.longitude, :location => scan_path(scan), :ip_address => scan.ip_address}
 		  locations.push(coords)
 	  end
 
