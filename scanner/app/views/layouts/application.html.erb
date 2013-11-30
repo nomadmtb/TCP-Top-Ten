@@ -43,11 +43,11 @@
 			</div>
 			<div class="content">
 				<% if alert %>
-					<%= alert %>
+					<div class="alert"><%= alert %></div>
 				<% end %>
 
 				<% if notice %>
-					<%= notice %>
+					<div class="notice"><%= notice %></div>
 				<% end %>
 
 				<%= yield %>

@@ -24,6 +24,28 @@ html
 	font-family: 'Oswald', sans-serif;
 }
 
+.alert
+{
+	width: 300px;
+	background-color: lightred;
+	color: darkred;
+	border: 1px solid darkred;
+	text-align: center;
+	margin: 0 auto;
+	padding: 5px;
+}
+
+.notice
+{
+	width: 300px;
+	background-color: lightblue;
+	color: darkblue;
+	border: 1px solid darkblue;
+	text-align: center;
+	margin: 0 auto;
+	padding: 5px;
+}
+
 #search_container
 {
 	background-color: lightgray;
