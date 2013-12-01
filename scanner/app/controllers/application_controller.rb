@@ -3,6 +3,12 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  def check_user?
+	  if !current_user
+		  redirect_to root_path, :alert => 'Please sign-in(up) to continue'
+	  end
+  end
+
   def host_count
 	  scan_count = Scan.distinct.count()
 	  respond_to do |format|

@@ -15,6 +15,7 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     @comment = Comment.new
+    @comment.scan_id = params[:scan_id]
   end
 
   # GET /comments/1/edit

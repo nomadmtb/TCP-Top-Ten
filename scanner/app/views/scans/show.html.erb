@@ -9,7 +9,11 @@
 			<td><%= @scan.ip_address %></td>
 		</tr>
 		<tr><th>DNS Ptr</th>
-			<td><%= @scan.domain_name_ptr %></td>
+			<% if !@scan.domain_name_ptr.empty? %>
+				<td><%= @scan.domain_name_ptr %></td>
+			<% else %>
+				<td>Not Set</td>
+			<% end %>
 		</tr>
 		<tr><th>Status</th>
 			<td><%= @scan.status %></td>
@@ -28,6 +32,7 @@
 </div>
 <div id="clear"></div>
 
+<div>
 <div class="open_ports_wrapper">
 	<h3><%=@scan.ip_address%>'s Open Ports</h3>
 	<% if @scan.open_ports.length > 0 %>
@@ -44,6 +49,11 @@
 		<h4>* No Open Ports Detected *</h4>
 	<% end %>
 </div>
+
+<%= link_to 'Download Scan Data', scan_download_path(@scan), :class => 'download_button' %>
+</div>
+
+<div id="clear"></div>
 
   </div> <!-- End of push-right -->
 

@@ -24,9 +24,25 @@
 	float: right;
 }
 
+.download_button
+{
+	display: block;
+	margin-top: 90px;
+	float: right;
+	width: 260px;
+	background-color: lightgray;
+	text-decoration: none;
+	color: black;
+	box-shadow: 5px 5px 5px #888888;
+	border-radius: 5px;
+	border: 1px solid black;
+	text-align: center;
+	padding: 15px;
+}
+
 .open_ports_wrapper
 {
-	margin: 0 auto;
+	float: left;
 	background-color: lightgray;
 	margin-top: 20px;
 	margin-bottom: 15px;
