@@ -1,9 +1,10 @@
 Scanner::Application.routes.draw do
-  resources :comments
 
   resources :open_ports
 
-  resources :scans
+  resources :scans do
+	  resources :comments, :shallow => true
+  end
 
   # Custom
   get "home/index"
