@@ -19,7 +19,16 @@ def IpValidate.valid_ip? address
 		net1 = IPAddr.new("10.0.0.0/8")
 		net2 = IPAddr.new("172.16.0.0/12")
 		net3 = IPAddr.new("192.168.0.0/16")
-		net4 = IPAddr.new("127.0.0.1")
+		net4 = IPAddr.new("127.0.0.0/8")
+		net5 = IPAddr.new("0.0.0.0/8")
+		net6 = IPAddr.new("169.254.0.0/16")
+		net7 = IPAddr.new("192.0.2.0/24")
+		net8 = IPAddr.new("198.51.100.0/24")
+		net9 = IPAddr.new("203.0.113.0/24")
+		net10 = IPAddr.new("192.88.99.0/24")
+		net11 = IPAddr.new("198.18.0.0/15")
+		net12 = IPAddr.new("224.0.0.0/4")
+		net13 = IPAddr.new("255.255.255.255/32")
 
 		# Checking for broadcast address
 		if address.include? '255'
@@ -35,6 +44,33 @@ def IpValidate.valid_ip? address
 			return false
 		end
 		if net4.include? addr
+			return false
+		end
+		if net5.include? addr
+			return false
+		end
+		if net6.include? addr
+			return false
+		end
+		if net7.include? addr
+			return false
+		end
+		if net8.include? addr
+			return false
+		end
+		if net9.include? addr
+			return false
+		end
+		if net10.include? addr
+			return false
+		end
+		if net11.include? addr
+			return false
+		end
+		if net12.include? addr
+			return false
+		end
+		if net13.include? addr
 			return false
 		end
 

@@ -27,7 +27,7 @@
 .download_button
 {
 	display: block;
-	margin-top: 90px;
+	margin-top: 80px;
 	float: right;
 	width: 260px;
 	background-color: lightgray;
@@ -38,6 +38,13 @@
 	border: 1px solid black;
 	text-align: center;
 	padding: 15px;
+}
+
+.download_button:hover
+{
+	-webkit-transition: all 0.3s ease-out;
+	background-color: #323232;
+	color: white;
 }
 
 .open_ports_wrapper
