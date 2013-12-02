@@ -1,16 +1,21 @@
 <h1>Search Results</h1>
 
-<h2>Ip Results</h2>
-<% @scans_ip.each do |scan| %>
-	<%= scan.ip_address %>
+<div class="push_right">
+<% if !@scans_ip.empty? %>
+	<h2>Matching IP Addresses</h2>
+	<% @scans_ip.each do |scan| %>
+		<%= link_to scan.ip_address, scan, :class => 'search_link' %>,
+	<% end %>
 <% end %>
 
-<h2>DNS Pointer</h2>
-<% @scans_dns.each do |scan| %>
-	<%= scan.domain_name_ptr %>
+<% if !@scans_dns.empty? %>
+	<h2>Matching DNS Pointers</h2>
+	<% @scans_dns.each do |scan| %>
+		<%= link_to scan.domain_name_ptr, scan, :class => 'search_link' %>,
+	<% end %>
 <% end %>
 
-<h2>User Scans</h2>
-<% @scans_user.each do |scan| %>
-	<%= scan.user.email %>
+<% if @scans_ip.empty? and @scans_dns.empty? %>
+	<h3>No matching scan records found</h3>
 <% end %>
+</div>

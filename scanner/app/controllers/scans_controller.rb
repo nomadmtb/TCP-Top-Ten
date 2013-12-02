@@ -15,11 +15,13 @@ class ScansController < ApplicationController
   end
 
   def search
-	  puts params[:query].inspect
-	  scans = Scan.all
-	  @scans_ip = scans.map { |x| x if x.ip_address =~ /#{Regexp.quote(params[:query])}/ }.compact
-	  @scans_dns = scans.map { |x| x if x.domain_name_ptr =~ /#{Regexp.quote(params[:query])}/i }.compact
-	  @scans_user = scans.map { |x| x if x.user.email =~ /#{Regexp.quote(params[:query])}/i }.compact
+	  if params[:query].empty?
+		  redirect_to root_path, :alert => 'Your search string was empty'
+	  else
+	  	scans = Scan.all
+	  	@scans_ip = scans.map { |x| x if x.ip_address =~ /#{Regexp.quote(params[:query])}/ }.compact
+	  	@scans_dns = scans.map { |x| x if x.domain_name_ptr =~ /#{Regexp.quote(params[:query])}/i }.compact
+  	  end
   end
 
   def download
