@@ -58,7 +58,39 @@ class ScansController < ApplicationController
 
   # GET /scans/stats
   def stats
-    @stats = Hash.new
+    @host_count = Scan.count
+    @port_count = OpenPort.count
+    @ports_per_host = (@port_count/@host_count.to_f).round(4)
+
+    @ftp_num = OpenPort.count(:all, :conditions => ['port = ?', 21])
+    @ftp_percent = ((@ftp_num/@host_count.to_f)*100).round(4).to_s + ' %'
+
+    @ssh_num = OpenPort.count(:all, :conditions => ['port = ?', 22])
+    @ssh_percent = ((@ssh_num/@host_count.to_f)*100).round(4).to_s + ' %'
+
+    @telnet_num = OpenPort.count(:all, :conditions => ['port = ?', 23])
+    @telnet_percent = ((@telnet_num/@host_count.to_f)*100).round(4).to_s + ' %'
+
+    @smtp_num = OpenPort.count(:all, :conditions => ['port = ?', 25])
+    @smtp_percent = ((@smtp_num/@host_count.to_f)*100).round(4).to_s + ' %'
+    
+    @http_num = OpenPort.count(:all, :conditions => ['port = ?', 80])
+    @http_percent = ((@http_num/@host_count.to_f)*100).round(4).to_s + ' %'
+
+    @pop3_num = OpenPort.count(:all, :conditions => ['port = ?', 110])
+    @pop3_percent = ((@pop3_num/@host_count.to_f)*100).round(4).to_s + ' %'
+
+    @netbios_num = OpenPort.count(:all, :conditions => ['port = ?', 139])
+    @netbios_percent = ((@netbios_num/@host_count.to_f)*100).round(4).to_s + ' %'
+
+    @https_num = OpenPort.count(:all, :conditions => ['port = ?', 443])
+    @https_percent = ((@https_num/@host_count.to_f)*100).round(4).to_s + ' %'
+
+    @smb_num = OpenPort.count(:all, :conditions => ['port = ?', 445])
+    @smb_percent = ((@smb_num/@host_count.to_f)*100).round(4).to_s + ' %'
+
+    @rdp_num = OpenPort.count(:all, :conditions => ['port = ?', 3389])
+    @rdp_percent = ((@rdp_num/@host_count.to_f)*100).round(4).to_s + ' %'
   end
 
   # GET /scans/new
