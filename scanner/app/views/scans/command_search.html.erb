@@ -1,0 +1,44 @@
+<div class="page_wrap">
+	<h1 class="about_title">Search Results<span class="subtitle">Search By Port Number</span></h1>
+	<div class="push_right">
+		<p>You are now viewing all of the scan records. To view a record in more detail, click the area
+		around a scan record to expand the view</p>
+			<div class="accordion">
+		<% @results.each do |scan| %>
+			<h3><%=scan.ip_address%><span class="subtitle"><% if !scan.domain_name_ptr.empty? %><%=' ' + scan.domain_name_ptr %><% else %> ---<% end %></span></h3>
+			<div class="results_container">
+				<table class="scan_results">
+					<tr>
+						<th>Date</th>
+						<td><%= scan.scan_date.month.to_s + '-' + scan.scan_date.day.to_s + '-' + scan.scan_date.year.to_s + ' : ' + scan.scan_date.strftime("%r") %></td>
+					</tr>
+					<tr>
+						<th>Status</th>
+						<td><%= scan.status %></td>
+					</tr>
+					<tr>
+						<th>User</th>
+						<td><%= scan.user.email %></td>
+					</tr>
+					<tr>
+						<th>Response</th>
+						<% if scan.comments.length != 0 %>
+							<td><%= 'There are ' + scan.comments.length.to_s + ' comment(s)' %></td>
+						<% else %>
+							<td>No Comments</td>
+						<% end %>
+					</tr>
+				</table>
+
+				<h3>Open TCP Ports</h3>
+				<% if scan.open_ports.empty? == false %>
+					<h5><%= scan.open_ports.length %> Detected TCP Port(s)</h5>
+				<% else %>
+					<h5>No open ports were detected</h5>
+				<% end %>
+				<%=link_to 'View Details', scan, :class => 'view_details_link' %>
+			</div>
+		<% end %>
+			</div>
+	</div>
+</div>

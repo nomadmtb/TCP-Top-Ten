@@ -58,6 +58,23 @@
   </div> <!-- End of push-right -->
 
   <div id="map-canvas" lat="<%= @scan.latitude %>" long="<%= @scan.longitude %>"></div>
-  <%= link_to 'Add comment', new_scan_comment_path(@scan), :class => 'add_comment_button' %>
+
+  <% if !@scan.comments.empty? %>
   <div id="comments_wrapper">
+	  <table>
+		  <tr>
+			  <th>User</th>
+			  <th>Date</th>
+			  <th>Comment</th>
+		  </tr>
+		  <% @scan.comments.reverse!.each do |entry| %>
+			  <tr>
+				  <td><%= entry.user.email %></td>
+				  <td><%= entry.comment_date.month.to_s + '-' + entry.comment_date.day.to_s + '-' + entry.comment_date.year.to_s %></td>
+				  <td><%= entry.comment %></td>
+			  </tr>
+		  <% end %>
+	  </table>
   </div>
+  <% end %>
+  <%= link_to 'Add comment', new_scan_comment_path(@scan), :class => 'add_comment_button' %>

@@ -31,6 +31,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
     @comment.scan = @scan
+    @comment.comment_date = DateTime.now
 
     respond_to do |format|
       if @comment.save

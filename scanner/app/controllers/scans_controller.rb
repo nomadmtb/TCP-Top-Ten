@@ -18,10 +18,35 @@ class ScansController < ApplicationController
 	  if params[:query].empty?
 		  redirect_to root_path, :alert => 'Your search string was empty'
 	  else
-	  	scans = Scan.all
-	  	@scans_ip = scans.map { |x| x if x.ip_address =~ /#{Regexp.quote(params[:query])}/ }.compact
-	  	@scans_dns = scans.map { |x| x if x.domain_name_ptr =~ /#{Regexp.quote(params[:query])}/i }.compact
-  	  end
+		if params[:query].index('Port: ') == 0
+			command = params[:query].split(': ')
+			if !command[1].empty?
+				port = command[1]
+
+				scans = Scan.all
+				@results = Array.new
+
+				scans.each do |scan|
+					scan.open_ports.each do |open_port|
+						puts 'loaded: ' + open_port.port.to_s
+						puts 'query:  ' + port.to_s
+						if open_port.port.to_s == port
+							puts '***MATCH***'
+							@results.push(open_port.scan)
+						end
+					end
+				end
+
+				render "command_search"
+			else
+				redirect_to root_path, :alert => 'Command Error'
+			end
+		else
+	  		scans = Scan.all
+	  		@scans_ip = scans.map { |x| x if x.ip_address =~ /#{Regexp.quote(params[:query])}/ }.compact
+	  		@scans_dns = scans.map { |x| x if x.domain_name_ptr =~ /#{Regexp.quote(params[:query])}/i }.compact
+  	  	end
+  	end
   end
 
   def download
