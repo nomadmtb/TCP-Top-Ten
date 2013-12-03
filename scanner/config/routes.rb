@@ -10,6 +10,7 @@ Scanner::Application.routes.draw do
   get "home/index"
   get "myscans" => 'scans#myscans'
   get "scan_count" => 'application#host_count'
+  get "stats" => 'scans#stats'
   get "/scans/:id/download" => 'scans#download', :as => 'scan_download'
   get "/recent_locations" => 'application#recent_locations'
   post "search" => 'scans#search'

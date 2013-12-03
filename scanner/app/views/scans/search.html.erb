@@ -4,7 +4,7 @@
 <% if !@scans_ip.empty? %>
 	<h2>Matching IP Addresses</h2>
 	<% @scans_ip.each do |scan| %>
-		<%= link_to scan.ip_address, scan, :class => 'search_link' %>,
+		<%= link_to scan.ip_address, scan, :class => 'search_link' %>
 	<% end %>
 <% end %>
 

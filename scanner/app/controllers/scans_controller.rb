@@ -28,10 +28,7 @@ class ScansController < ApplicationController
 
 				scans.each do |scan|
 					scan.open_ports.each do |open_port|
-						puts 'loaded: ' + open_port.port.to_s
-						puts 'query:  ' + port.to_s
 						if open_port.port.to_s == port
-							puts '***MATCH***'
 							@results.push(open_port.scan)
 						end
 					end

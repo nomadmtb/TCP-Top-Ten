@@ -1,12 +1,12 @@
 <div class="page_wrap">
 	<h1 class="about_title">Search Results<span class="subtitle">Search By Port Number</span></h1>
 	<div class="push_right">
-		<p>You are now viewing all of the scan records. To view a record in more detail, click the area
-		around a scan record to expand the view</p>
+		<p>You are now viewing the results of the port number search</p>
+		<% if !@results.empty? %>
 			<div class="accordion">
-		<% @results.each do |scan| %>
-			<h3><%=scan.ip_address%><span class="subtitle"><% if !scan.domain_name_ptr.empty? %><%=' ' + scan.domain_name_ptr %><% else %> ---<% end %></span></h3>
-			<div class="results_container">
+			<% @results.each do |scan| %>
+				<h3><%=scan.ip_address%><span class="subtitle"><% if !scan.domain_name_ptr.empty? %><%=' ' + scan.domain_name_ptr %><% else %> ---<% end %></span></h3>
+				<div class="results_container">
 				<table class="scan_results">
 					<tr>
 						<th>Date</th>
@@ -39,6 +39,9 @@
 				<%=link_to 'View Details', scan, :class => 'view_details_link' %>
 			</div>
 		<% end %>
+	<% else %>
+		<h2>*No results for specific port*</h2>
+	<% end %>
 			</div>
 	</div>
 </div>
