@@ -4,15 +4,15 @@
 		<table class="stat_sum">
 			<tr>
 				<td>Number of Hosts Scanned</td>
-				<td><%= @host_count %></td>
+				<td><b><%= @host_count %></b></td>
 			</tr>
 			<tr>
 				<td>Number of Open Ports Detected</td>
-				<td><%= @port_count %></td>
+				<td><b><%= @port_count %></b></td>
 			</tr>
 			<tr>
-				<td>Average of Open Ports Per Scan</td>
-				<td><%= @ports_per_host %></td>
+				<td>Average Number of Open Ports Per Scan</td>
+				<td><b><%= @ports_per_host %></b></td>
 			</tr>
 		</table>
 
@@ -20,67 +20,67 @@
 			<tr>
 				<th>Service/Port</th>
 				<th>Number of Hosts</th>
-				<th>Percent of scanned hosts</th>
+				<th>Percent of Scanned Hosts</th>
 			</tr>
 
 			<tr>
-				<td>21/FTP</td>
-				<td><%= @ftp_num %></td>
-				<td><%= @ftp_percent %></td>
+				<td>21 / FTP</td>
+				<td><b><%= @ftp_num %></b></td>
+				<td><b><%= @ftp_percent %></b></td>
 			</tr>
 
 			<tr>
-				<td>22/SSH</td>
-				<td><%= @ssh_num %></td>
-				<td><%= @ssh_percent %></td>
+				<td>22 / SSH</td>
+				<td><b><%= @ssh_num %></b></td>
+				<td><b><%= @ssh_percent %></b></td>
 			</tr>
 
 			<tr>
-				<td>23/TELNET</td>
-				<td><%= @telnet_num %></td>
-				<td><%= @telnet_percent %></td>
+				<td>23 / TELNET</td>
+				<td><b><%= @telnet_num %></b></td>
+				<td><b><%= @telnet_percent %></b></td>
 			</tr>
 
 			<tr>
-				<td>25/SMTP</td>
-				<td><%= @smtp_num %></td>
-				<td><%= @smtp_percent %></td>
+				<td>25 / SMTP</td>
+				<td><b><%= @smtp_num %></b></td>
+				<td><b><%= @smtp_percent %></b></td>
 			</tr>
 
 			<tr>
-				<td>80/HTTP</td>
-				<td><%= @http_num %></td>
-				<td><%= @http_percent %></td>
+				<td>80 / HTTP</td>
+				<td><b><%= @http_num %></b></td>
+				<td><b><%= @http_percent %></b></td>
 			</tr>
 
 			<tr>
-				<td>110/POP3</td>
-				<td><%= @pop3_num %></td>
-				<td><%= @pop3_percent %></td>
+				<td>110 / POP3</td>
+				<td><b><%= @pop3_num %></b></td>
+				<td><b><%= @pop3_percent %></b></td>
 			</tr>
 
 			<tr>
-				<td>139/NetBIOS</td>
-				<td><%= @netbios_num %></td>
-				<td><%= @netbios_percent %></td>
+				<td>139 / NetBIOS</td>
+				<td><b><%= @netbios_num %></b></td>
+				<td><b><%= @netbios_percent %></b></td>
 			</tr>
 
 			<tr>
-				<td>443/HTTPS</td>
-				<td><%= @https_num %></td>
-				<td><%= @https_percent %></td>
+				<td>443 / HTTPS</td>
+				<td><b><%= @https_num %></b></td>
+				<td><b><%= @https_percent %></b></td>
 			</tr>
 
 			<tr>
-				<td>445/SMB</td>
-				<td><%= @smb_num %></td>
-				<td><%= @smb_percent %></td>
+				<td>445 / SMB</td>
+				<td><b><%= @smb_num %></b></td>
+				<td><b><%= @smb_percent %></b></td>
 			</tr>
 
 			<tr>
-				<td>3389/RDP</td>
-				<td><%= @rdp_num %></td>
-				<td><%= @rdp_percent %></td>
+				<td>3389 / RDP</td>
+				<td><b><%= @rdp_num %></b></td>
+				<td><b><%= @rdp_percent %></b></td>
 			</tr>
 		</table>
 	</div>
