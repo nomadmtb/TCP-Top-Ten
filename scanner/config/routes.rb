@@ -1,9 +1,9 @@
 Scanner::Application.routes.draw do
 
-  resources :open_ports
+  #resources :open_ports, only: :new
 
-  resources :scans do
-	  resources :comments, :shallow => true
+  resources :scans, except: [:destroy, :edit, :update] do
+	  resources :comments, :shallow => true, except: [:show, :index, :destroy, :edit, :update]
   end
 
   # Custom
