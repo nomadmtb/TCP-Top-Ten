@@ -39,8 +39,13 @@ class Scan < ActiveRecord::Base
 
 	  api = GeoLocationAPI.new
 	  results = api.lookup(self.ip_address)
-	  self.latitude = results['latitude']
-	  self.longitude = results['longitude']
+	  if results != false
+	  	self.latitude = results['latitude']
+	  	self.longitude = results['longitude']
+	  else
+		self.latitude = 0;
+		self.longitude = 0;
+	  end
 
   end
 
