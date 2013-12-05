@@ -4,14 +4,14 @@
 <% if !@scans_ip.empty? %>
 	<h2>Matching IP Addresses</h2>
 	<% @scans_ip.each do |scan| %>
-		<%= link_to scan.ip_address, scan, :class => 'search_link' %>
+		<p><%= link_to scan.ip_address, scan, :class => 'search_link' %></p>
 	<% end %>
 <% end %>
 
 <% if !@scans_dns.empty? %>
 	<h2>Matching DNS Pointers</h2>
 	<% @scans_dns.each do |scan| %>
-		<%= link_to scan.domain_name_ptr, scan, :class => 'search_link' %>,
+		<p><%= link_to scan.domain_name_ptr, scan, :class => 'search_link' %></p>
 	<% end %>
 <% end %>
 
