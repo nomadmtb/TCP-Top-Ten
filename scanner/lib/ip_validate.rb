@@ -30,10 +30,6 @@ def IpValidate.valid_ip? address
 		net12 = IPAddr.new("224.0.0.0/4")
 		net13 = IPAddr.new("255.255.255.255/32")
 
-		# Checking for broadcast address
-		if address.include? '255' or address.include? '.0.' or address.include? '.0' or address =~ /\A[0]\./
-			return false
-		end
 		if net1.include? addr
 			return false
 		end
