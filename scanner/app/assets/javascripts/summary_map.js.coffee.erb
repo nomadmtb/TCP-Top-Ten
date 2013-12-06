@@ -5,7 +5,7 @@ initialize_summary_map = ->
 	if $("#summary_canvas").length
 		$.ajax
 			type: "GET"
-			url: "http://172.16.12.188:3000/recent_locations.json"
+			url: "/recent_locations.json"
 			success: add_markers
 	else
 		return

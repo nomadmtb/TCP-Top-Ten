@@ -11,7 +11,7 @@ $ ->
 request_count = ->
 	$.ajax
 		type: "GET"
-		url: "http://172.16.12.188:3000/scan_count.json"
+		url: "/scan_count.json"
 		success: update_counter
 	return
 
